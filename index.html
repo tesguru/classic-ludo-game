@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Ludo 3D - Traditional Rules</title>
+    <title>Classic Ludo 3D - Accurate Rules</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@300;400;600;700&display=swap');
         
@@ -19,7 +19,6 @@
             --yellow: #ffd93d;
             --blue: #4d9de0;
             --dark: #1a1a2e;
-            --darker: #0f0f1e;
         }
 
         body {
@@ -46,15 +45,12 @@
             transform: translateX(-50%);
             font-family: 'Righteous', sans-serif;
             font-size: 2.5rem;
-            font-weight: 700;
             background: linear-gradient(135deg, #ffd93d, #ff3b3b, #4d9de0, #06d6a0);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             animation: gradientFlow 4s ease infinite;
             z-index: 10;
-            text-shadow: 0 0 30px rgba(255, 217, 61, 0.5);
         }
 
         @keyframes gradientFlow {
@@ -66,12 +62,12 @@
             position: fixed;
             top: 80px;
             left: 20px;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             z-index: 10;
             min-width: 220px;
         }
@@ -96,9 +92,9 @@
         }
 
         .player-item.active {
-            background: rgba(255, 217, 61, 0.2);
+            background: rgba(255, 217, 61, 0.25);
             transform: translateX(3px);
-            box-shadow: 0 3px 15px rgba(255, 217, 61, 0.4);
+            box-shadow: 0 3px 15px rgba(255, 217, 61, 0.5);
             border-left: 3px solid #ffd93d;
         }
 
@@ -154,10 +150,6 @@
             box-shadow: 0 15px 40px rgba(255, 217, 61, 0.7);
         }
 
-        #dice-button:active:not(:disabled) {
-            transform: scale(0.95);
-        }
-
         #dice-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -168,9 +160,9 @@
         }
 
         @keyframes diceRoll {
-            0%, 100% { transform: rotate(0deg) scale(1); }
+            0%, 100% { transform: rotate(0deg); }
             25% { transform: rotate(90deg) scale(1.15); }
-            50% { transform: rotate(180deg) scale(1); }
+            50% { transform: rotate(180deg); }
             75% { transform: rotate(270deg) scale(1.15); }
         }
 
@@ -185,12 +177,12 @@
             position: fixed;
             top: 80px;
             right: 20px;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             z-index: 10;
             min-width: 280px;
             max-width: 320px;
@@ -206,12 +198,12 @@
             position: fixed;
             bottom: 30px;
             right: 20px;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             z-index: 10;
             max-width: 320px;
             max-height: 280px;
@@ -270,12 +262,10 @@
         .winner-title {
             font-family: 'Righteous', sans-serif;
             font-size: 3.5rem;
-            font-weight: 900;
             background: linear-gradient(45deg, #ffd93d, white, #ffd93d);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             animation: gradientFlow 2s ease infinite;
             margin-bottom: 20px;
         }
@@ -298,12 +288,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(255, 217, 61, 0.4);
-            text-transform: uppercase;
         }
 
         #restart-button:hover {
             transform: scale(1.08);
-            box-shadow: 0 12px 35px rgba(255, 217, 61, 0.6);
         }
 
         .instruction-hint {
@@ -311,7 +299,7 @@
             bottom: 170px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 217, 61, 0.9);
+            background: rgba(255, 217, 61, 0.95);
             color: #1a1a2e;
             padding: 12px 24px;
             border-radius: 10px;
@@ -373,20 +361,19 @@
     </div>
 
     <div class="instruction-hint" id="instruction-hint">
-        Click on a piece to move it!
+        👆 Click on a glowing piece to move it!
     </div>
 
     <div id="rules-panel">
         <div class="section-title">How to Play</div>
         <div class="rules-content">
             <ul style="list-style: none; padding: 0;">
-                <li>🎯 <strong>Goal:</strong> Get all 4 pieces from home to the finish area (center)</li>
-                <li>🎲 <strong>Starting:</strong> Roll a 6 to bring a piece out of home</li>
-                <li>↗️ <strong>Moving:</strong> Click on your pieces to move them by the dice number</li>
-                <li>⚔️ <strong>Capture:</strong> Land on opponent pieces to send them back home</li>
-                <li>🔄 <strong>Bonus:</strong> Roll 6 = get another turn!</li>
-                <li>🏁 <strong>Home Stretch:</strong> Enter your colored path to reach the finish</li>
-                <li>✨ <strong>Winning:</strong> First to get all 4 pieces to finish wins!</li>
+                <li>🎯 <strong>Goal:</strong> Move all 4 pieces from home around the board to the center</li>
+                <li>🎲 <strong>Start:</strong> Roll a 6 to bring a piece out of home</li>
+                <li>➡️ <strong>Path:</strong> Pieces move clockwise around the outer track, then into your colored home column</li>
+                <li>⚔️ <strong>Capture:</strong> Land on opponent pieces to send them home</li>
+                <li>🔄 <strong>Bonus:</strong> Rolling 6 gives another turn!</li>
+                <li>🏁 <strong>Win:</strong> First to get all 4 pieces to center wins!</li>
             </ul>
         </div>
     </div>
@@ -409,74 +396,90 @@
             BLUE: { hex: 0x4d9de0, name: 'Blue', css: '#4d9de0' }
         };
 
-        // Ludo Board Path Definition
-        // Path starts from each player's starting square and goes around the board
-        // Then enters the home stretch (colored column to center)
-        
-        const BOARD_PATHS = {
-            RED: [
-                // Starting square and main path
-                [6,1], [5,1], [4,1], [3,1], [2,1], [1,1], [0,1],
-                [0,2], [0,3], [0,4], [0,5], [0,6], [1,6], [2,6],
-                [2,7], [2,8], [1,8], [0,8], [0,9], [0,10], [0,11], [0,12], [0,13],
-                [1,13], [2,13], [3,13], [4,13], [5,13], [6,13],
-                [6,14], [7,14], [8,14],
-                [8,13], [9,13], [10,13], [11,13], [12,13], [13,13], [14,13],
-                [14,12], [14,11], [14,10], [14,9], [14,8], [13,8], [12,8],
-                [12,7], [12,6], [13,6], [14,6], [14,5], [14,4], [14,3], [14,2], [14,1],
-                [13,1], [12,1], [11,1], [10,1], [9,1], [8,1],
-                [8,0], [7,0], [6,0],
-                // Home stretch (red column)
-                [6,1], [6,2], [6,3], [6,4], [6,5], [6,6], [6,7]  // Finish at [6,7]
-            ],
-            GREEN: [
-                // Green starts at [1,8]
-                [1,8], [0,8], [0,9], [0,10], [0,11], [0,12], [0,13],
-                [1,13], [2,13], [3,13], [4,13], [5,13], [6,13],
-                [6,14], [7,14], [8,14],
-                [8,13], [9,13], [10,13], [11,13], [12,13], [13,13], [14,13],
-                [14,12], [14,11], [14,10], [14,9], [14,8], [13,8], [12,8],
-                [12,7], [12,6], [13,6], [14,6], [14,5], [14,4], [14,3], [14,2], [14,1],
-                [13,1], [12,1], [11,1], [10,1], [9,1], [8,1],
-                [8,0], [7,0], [6,0],
-                [6,1], [5,1], [4,1], [3,1], [2,1], [1,1], [0,1],
-                [0,2], [0,3], [0,4], [0,5], [0,6], [1,6], [2,6],
-                [2,7],
-                // Green home stretch
-                [1,7], [2,7], [3,7], [4,7], [5,7], [6,7], [7,7]
-            ],
-            YELLOW: [
-                // Yellow starts at [8,13]
-                [8,13], [9,13], [10,13], [11,13], [12,13], [13,13], [14,13],
-                [14,12], [14,11], [14,10], [14,9], [14,8], [13,8], [12,8],
-                [12,7], [12,6], [13,6], [14,6], [14,5], [14,4], [14,3], [14,2], [14,1],
-                [13,1], [12,1], [11,1], [10,1], [9,1], [8,1],
-                [8,0], [7,0], [6,0],
-                [6,1], [5,1], [4,1], [3,1], [2,1], [1,1], [0,1],
-                [0,2], [0,3], [0,4], [0,5], [0,6], [1,6], [2,6],
-                [2,7], [2,8], [1,8], [0,8], [0,9], [0,10], [0,11], [0,12], [0,13],
-                [1,13], [2,13], [3,13], [4,13], [5,13], [6,13],
-                [6,14], [7,14], [8,14],
-                [8,13],
-                // Yellow home stretch
-                [8,12], [8,11], [8,10], [8,9], [8,8], [8,7], [7,7]
-            ],
-            BLUE: [
-                // Blue starts at [13,6]
-                [13,6], [14,6], [14,5], [14,4], [14,3], [14,2], [14,1],
-                [13,1], [12,1], [11,1], [10,1], [9,1], [8,1],
-                [8,0], [7,0], [6,0],
-                [6,1], [5,1], [4,1], [3,1], [2,1], [1,1], [0,1],
-                [0,2], [0,3], [0,4], [0,5], [0,6], [1,6], [2,6],
-                [2,7], [2,8], [1,8], [0,8], [0,9], [0,10], [0,11], [0,12], [0,13],
-                [1,13], [2,13], [3,13], [4,13], [5,13], [6,13],
-                [6,14], [7,14], [8,14],
-                [8,13], [9,13], [10,13], [11,13], [12,13], [13,13], [14,13],
-                [14,12], [14,11], [14,10], [14,9], [14,8], [13,8], [12,8],
-                [12,7],
-                // Blue home stretch
-                [13,7], [12,7], [11,7], [10,7], [9,7], [8,7], [7,7]
-            ]
+        // Create the MAIN CLOCKWISE PATH (52 squares around the board)
+        // This is the shared path all players follow
+        function createMainPath() {
+            const path = [];
+            
+            // Starting from position 0 (Red's entry point) going CLOCKWISE
+            // Bottom-left arm going UP
+            path.push([1,6]);  // 0 - Red starts here
+            path.push([1,5]);  // 1
+            path.push([1,4]);  // 2
+            path.push([1,3]);  // 3
+            path.push([1,2]);  // 4
+            path.push([1,1]);  // 5
+            
+            // Top-left corner
+            path.push([2,1]);  // 6
+            path.push([3,1]);  // 7
+            path.push([4,1]);  // 8
+            path.push([5,1]);  // 9
+            path.push([6,1]);  // 10
+            
+            // Left side of top arm
+            path.push([6,2]);  // 11
+            path.push([6,3]);  // 12
+            path.push([6,4]);  // 13 - Green starts here
+            path.push([6,5]);  // 14
+            path.push([6,6]);  // 15
+            
+            // Top of board going RIGHT
+            path.push([7,6]);  // 16
+            path.push([8,6]);  // 17
+            path.push([9,6]);  // 18
+            path.push([10,6]); // 19
+            path.push([11,6]); // 20
+            path.push([12,6]); // 21
+            path.push([13,6]); // 22
+            
+            // Top-right corner going DOWN
+            path.push([13,7]); // 23
+            path.push([13,8]); // 24
+            path.push([13,9]); // 25
+            path.push([13,10]);// 26 - Yellow starts here
+            path.push([13,11]);// 27
+            path.push([13,12]);// 28
+            path.push([13,13]);// 29
+            
+            // Right side going LEFT
+            path.push([12,13]);// 30
+            path.push([11,13]);// 31
+            path.push([10,13]);// 32
+            path.push([9,13]); // 33
+            path.push([8,13]); // 34
+            
+            // Bottom-right arm
+            path.push([8,12]); // 35
+            path.push([8,11]); // 36
+            path.push([8,10]); // 37
+            path.push([8,9]);  // 38
+            path.push([8,8]);  // 39 - Blue starts here
+            
+            // Bottom of board going LEFT
+            path.push([7,8]);  // 40
+            path.push([6,8]);  // 41
+            path.push([5,8]);  // 42
+            path.push([4,8]);  // 43
+            path.push([3,8]);  // 44
+            path.push([2,8]);  // 45
+            path.push([1,8]);  // 46
+            
+            // Bottom-left corner going UP
+            path.push([1,7]);  // 47
+            // path[48] would be [1,6] which is position 0, completing the circle
+            
+            return path;
+        }
+
+        const MAIN_PATH = createMainPath();
+
+        // Home stretch paths (from main path to center)
+        const HOME_STRETCHES = {
+            RED: [[2,6], [3,6], [4,6], [5,6], [6,6], [7,7]], // Goes UP then to center
+            GREEN: [[6,5], [6,4], [6,3], [6,2], [6,1], [7,7]], // Goes LEFT then to center  
+            YELLOW: [[12,7], [11,7], [10,7], [9,7], [8,7], [7,7]], // Goes DOWN then to center
+            BLUE: [[8,8], [8,9], [8,10], [8,11], [8,12], [7,7]]  // Goes RIGHT then to center
         };
 
         const PLAYERS = [
@@ -484,44 +487,43 @@
                 id: 0, 
                 name: 'Red Player', 
                 color: COLORS.RED,
-                homePositions: [[1,1],[1,2],[2,1],[2,2]],
-                startSquare: [6,1],
-                path: BOARD_PATHS.RED,
-                finishPosition: [6,7]
+                homePositions: [[0,8],[0,9],[1,9],[0,10]],
+                startIndex: 0, // Red starts at position 0 of main path
+                homeStretchEntry: 47, // Red enters home stretch after position 47
+                homeStretch: HOME_STRETCHES.RED
             },
             { 
                 id: 1, 
                 name: 'Green Player', 
                 color: COLORS.GREEN,
-                homePositions: [[1,12],[1,13],[2,12],[2,13]],
-                startSquare: [1,8],
-                path: BOARD_PATHS.GREEN,
-                finishPosition: [7,7]
+                homePositions: [[5,0],[6,0],[5,1],[6,1]],
+                startIndex: 13, // Green starts at position 13 of main path
+                homeStretchEntry: 12, // Green enters home stretch after position 12 (wraps around)
+                homeStretch: HOME_STRETCHES.GREEN
             },
             { 
                 id: 2, 
                 name: 'Yellow Player', 
                 color: COLORS.YELLOW,
-                homePositions: [[12,12],[12,13],[13,12],[13,13]],
-                startSquare: [8,13],
-                path: BOARD_PATHS.YELLOW,
-                finishPosition: [7,7]
+                homePositions: [[13,4],[14,4],[13,5],[14,5]],
+                startIndex: 26, // Yellow starts at position 26 of main path
+                homeStretchEntry: 25, // Yellow enters home stretch after position 25 (wraps around)
+                homeStretch: HOME_STRETCHES.YELLOW
             },
             { 
                 id: 3, 
                 name: 'Blue Player', 
                 color: COLORS.BLUE,
-                homePositions: [[12,1],[12,2],[13,1],[13,2]],
-                startSquare: [13,6],
-                path: BOARD_PATHS.BLUE,
-                finishPosition: [7,7]
+                homePositions: [[8,14],[8,13],[9,13],[9,14]],
+                startIndex: 39, // Blue starts at position 39 of main path
+                homeStretchEntry: 38, // Blue enters home stretch after position 38 (wraps around)
+                homeStretch: HOME_STRETCHES.BLUE
             }
         ];
 
         // Game State
         let scene, camera, renderer, raycaster, mouse;
         let pieces = [];
-        let clickablePieces = [];
         let gameState = {
             currentPlayer: 0,
             diceValue: 0,
@@ -534,7 +536,6 @@
         const CELL_SIZE = 0.6;
         const PIECE_HEIGHT = 0.35;
 
-        // Initialize Three.js
         function init() {
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x0f0f1e);
@@ -546,7 +547,6 @@
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
             raycaster = new THREE.Raycaster();
@@ -559,15 +559,12 @@
             const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
             mainLight.position.set(10, 20, 10);
             mainLight.castShadow = true;
-            mainLight.shadow.mapSize.width = 2048;
-            mainLight.shadow.mapSize.height = 2048;
             scene.add(mainLight);
 
-            // Colored corner lights
-            addCornerLight(COLORS.RED.hex, -4, -4);
-            addCornerLight(COLORS.GREEN.hex, -4, 4);
-            addCornerLight(COLORS.YELLOW.hex, 4, 4);
-            addCornerLight(COLORS.BLUE.hex, 4, -4);
+            addCornerLight(COLORS.RED.hex, -4, 4);
+            addCornerLight(COLORS.GREEN.hex, -4, -4);
+            addCornerLight(COLORS.YELLOW.hex, 4, -4);
+            addCornerLight(COLORS.BLUE.hex, 4, 4);
 
             createBoard();
             createAllPieces();
@@ -575,7 +572,6 @@
 
             window.addEventListener('resize', onWindowResize);
             renderer.domElement.addEventListener('click', onBoardClick);
-            renderer.domElement.addEventListener('mousemove', onMouseMove);
             document.getElementById('dice-button').addEventListener('click', rollDice);
             document.getElementById('restart-button').addEventListener('click', () => location.reload());
 
@@ -589,7 +585,6 @@
         }
 
         function createBoard() {
-            // Base platform
             const baseGeo = new THREE.BoxGeometry(BOARD_SIZE * CELL_SIZE + 1.5, 0.4, BOARD_SIZE * CELL_SIZE + 1.5);
             const baseMat = new THREE.MeshStandardMaterial({ 
                 color: 0x1a1a2e,
@@ -602,26 +597,26 @@
             scene.add(base);
 
             // Create cells
-            for(let x = 0; x < BOARD_SIZE; x++) {
-                for(let z = 0; z < BOARD_SIZE; z++) {
+            for(let row = 0; row < BOARD_SIZE; row++) {
+                for(let col = 0; col < BOARD_SIZE; col++) {
                     const cellGeo = new THREE.BoxGeometry(CELL_SIZE * 0.92, 0.08, CELL_SIZE * 0.92);
                     let cellColor = 0x2a2f4a;
 
-                    // Home areas (corners)
-                    if(x <= 3 && z <= 3) cellColor = COLORS.RED.hex;
-                    else if(x <= 3 && z >= 11) cellColor = COLORS.GREEN.hex;
-                    else if(x >= 11 && z >= 11) cellColor = COLORS.YELLOW.hex;
-                    else if(x >= 11 && z <= 3) cellColor = COLORS.BLUE.hex;
-                    // Center finish area
-                    else if(x >= 6 && x <= 8 && z >= 6 && z <= 8) cellColor = 0xffd93d;
-                    // Main path cells
-                    else if(isOnMainPath(x, z)) cellColor = 0x3a3f5a;
-                    // Home stretch paths
-                    else if(isOnHomeStretch(x, z)) {
-                        if(x === 6 && z >= 1 && z <= 6) cellColor = COLORS.RED.hex;
-                        else if(z === 7 && x >= 1 && x <= 6) cellColor = COLORS.GREEN.hex;
-                        else if(x === 8 && z >= 8 && z <= 13) cellColor = COLORS.YELLOW.hex;
-                        else if(z === 7 && x >= 8 && x <= 13) cellColor = COLORS.BLUE.hex;
+                    // Home areas
+                    if(row <= 1 && col >= 8 && col <= 10) cellColor = COLORS.RED.hex;
+                    else if(row >= 4 && row <= 6 && col <= 1) cellColor = COLORS.GREEN.hex;
+                    else if(row >= 13 && col >= 4 && col <= 5) cellColor = COLORS.YELLOW.hex;
+                    else if(row >= 8 && row <= 9 && col >= 13) cellColor = COLORS.BLUE.hex;
+                    // Center
+                    else if(row === 7 && col === 7) cellColor = 0xffd93d;
+                    // Main path
+                    else if(isOnMainPath(row, col)) cellColor = 0x3a3f5a;
+                    // Home stretches
+                    else if(isOnHomeStretch(row, col)) {
+                        if(col === 6 && row >= 2 && row <= 6) cellColor = COLORS.RED.hex;
+                        else if(row === 6 && col >= 1 && col <= 5) cellColor = COLORS.GREEN.hex;
+                        else if(col === 7 && row >= 8 && row <= 12) cellColor = COLORS.YELLOW.hex;
+                        else if(row === 8 && col >= 8 && col <= 12) cellColor = COLORS.BLUE.hex;
                     }
 
                     const cellMat = new THREE.MeshStandardMaterial({
@@ -633,63 +628,43 @@
                     });
 
                     const cell = new THREE.Mesh(cellGeo, cellMat);
-                    const posX = (x - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
-                    const posZ = (z - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+                    const posX = (row - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+                    const posZ = (col - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
                     cell.position.set(posX, 0, posZ);
                     cell.receiveShadow = true;
                     scene.add(cell);
                 }
             }
 
-            // Add border
+            // Border
             const borderMat = new THREE.MeshStandardMaterial({
                 color: 0xffd93d,
                 emissive: 0xffd93d,
                 emissiveIntensity: 0.4,
-                metalness: 0.8,
-                roughness: 0.2
+                metalness: 0.8
             });
 
             const borderThick = 0.12;
             const boardDim = BOARD_SIZE * CELL_SIZE + 1.5;
             
-            const borders = [
-                [boardDim, borderThick, borderThick, 0, 0, boardDim/2],
-                [boardDim, borderThick, borderThick, 0, 0, -boardDim/2],
-                [borderThick, borderThick, boardDim, boardDim/2, 0, 0],
-                [borderThick, borderThick, boardDim, -boardDim/2, 0, 0]
-            ];
-
-            borders.forEach(([w,h,d,x,y,z]) => {
-                const geo = new THREE.BoxGeometry(w,h,d);
-                const mesh = new THREE.Mesh(geo, borderMat);
+            [[boardDim, borderThick, borderThick, 0, 0, boardDim/2],
+             [boardDim, borderThick, borderThick, 0, 0, -boardDim/2],
+             [borderThick, borderThick, boardDim, boardDim/2, 0, 0],
+             [borderThick, borderThick, boardDim, -boardDim/2, 0, 0]].forEach(([w,h,d,x,y,z]) => {
+                const mesh = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), borderMat);
                 mesh.position.set(x,y,z);
                 scene.add(mesh);
             });
         }
 
-        function isOnMainPath(x, z) {
-            // Outer ring path
-            if((x === 1 || x === 13) && z >= 0 && z <= 14) return true;
-            if((z === 1 || z === 13) && x >= 0 && x <= 14) return true;
-            if((x === 6 || x === 8) && (z === 0 || z === 14)) return true;
-            if((z === 6 || z === 8) && (x === 0 || x === 14)) return true;
-            if(x === 0 && (z >= 1 && z <= 6 || z >= 8 && z <= 13)) return true;
-            if(x === 14 && (z >= 1 && z <= 6 || z >= 8 && z <= 13)) return true;
-            if(z === 0 && (x >= 6 && x <= 8)) return true;
-            if(z === 14 && (x >= 6 && x <= 8)) return true;
-            // Middle rows
-            if((x === 2 || x === 12) && (z === 6 || z === 7 || z === 8)) return true;
-            if((z === 2 || z === 12) && (x === 6 || x === 7 || x === 8)) return true;
-            return false;
+        function isOnMainPath(row, col) {
+            return MAIN_PATH.some(([r, c]) => r === row && c === col);
         }
 
-        function isOnHomeStretch(x, z) {
-            if(x === 6 && z >= 1 && z <= 6) return true; // Red
-            if(z === 7 && x >= 1 && x <= 6) return true; // Green
-            if(x === 8 && z >= 8 && z <= 13) return true; // Yellow
-            if(z === 7 && x >= 8 && x <= 13) return true; // Blue
-            return false;
+        function isOnHomeStretch(row, col) {
+            return Object.values(HOME_STRETCHES).some(stretch => 
+                stretch.some(([r, c]) => r === row && c === col)
+            );
         }
 
         function createAllPieces() {
@@ -714,16 +689,17 @@
             });
 
             const mesh = new THREE.Mesh(geo, mat);
-            const [x, z] = homePos;
-            const posX = (x - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
-            const posZ = (z - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const [row, col] = homePos;
+            const posX = (row - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const posZ = (col - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
             mesh.position.set(posX, PIECE_HEIGHT / 2 + 0.05, posZ);
             mesh.castShadow = true;
 
             mesh.userData = {
                 playerId: player.id,
                 pieceIdx: idx,
-                pathPosition: -1, // -1 = in home
+                mainPathPosition: -1, // -1 = in home, >= 0 = on main path
+                homeStretchPosition: -1, // -1 = not in home stretch, >= 0 = in home stretch
                 homePos: homePos,
                 type: 'piece'
             };
@@ -765,9 +741,7 @@
 
             if(gameState.movablePieces.length === 0) {
                 updateStatus(`${player.name}: No valid moves!`);
-                setTimeout(() => {
-                    nextPlayer();
-                }, 1500);
+                setTimeout(nextPlayer, 1500);
             } else {
                 updateStatus(`${player.name}: Click a piece to move`);
                 document.getElementById('instruction-hint').style.display = 'block';
@@ -779,17 +753,34 @@
             const movable = [];
             
             player.pieces.forEach((piece) => {
-                const pos = piece.userData.pathPosition;
+                const userData = piece.userData;
                 
-                // Can move out of home with a 6
-                if(pos === -1 && gameState.diceValue === 6) {
-                    movable.push(piece);
+                // In home - can only move out with 6
+                if(userData.mainPathPosition === -1 && userData.homeStretchPosition === -1) {
+                    if(gameState.diceValue === 6) {
+                        movable.push(piece);
+                    }
                 }
-                // Can move on path
-                else if(pos >= 0) {
-                    const newPos = pos + gameState.diceValue;
-                    // Check if move is valid (not beyond finish)
-                    if(newPos <= player.path.length - 1) {
+                // On main path
+                else if(userData.mainPathPosition >= 0) {
+                    // Calculate absolute position on main path from player's perspective
+                    const absolutePos = (player.startIndex + userData.mainPathPosition) % MAIN_PATH.length;
+                    const stepsToHomeEntry = (player.homeStretchEntry - player.startIndex + MAIN_PATH.length) % MAIN_PATH.length;
+                    
+                    // Can move forward on main path
+                    if(userData.mainPathPosition < stepsToHomeEntry) {
+                        movable.push(piece);
+                    }
+                    // Can enter home stretch
+                    else if(userData.mainPathPosition === stepsToHomeEntry && gameState.diceValue <= player.homeStretch.length) {
+                        movable.push(piece);
+                    }
+                }
+                // In home stretch
+                else if(userData.homeStretchPosition >= 0) {
+                    const newPos = userData.homeStretchPosition + gameState.diceValue;
+                    // Must land exactly on center or before
+                    if(newPos <= player.homeStretch.length - 1) {
                         movable.push(piece);
                     }
                 }
@@ -809,7 +800,7 @@
             const startTime = Date.now();
             
             function bounce() {
-                if(gameState.movablePieces.includes(piece) && gameState.canRoll === false) {
+                if(gameState.movablePieces.includes(piece) && !gameState.canRoll) {
                     const elapsed = Date.now() - startTime;
                     const cycle = (elapsed % 1000) / 1000;
                     piece.position.y = startY + Math.sin(cycle * Math.PI * 2) * 0.15;
@@ -841,35 +832,55 @@
         }
 
         function movePiece(piece) {
-            gameState.movablePieces = []; // Clear highlights
+            gameState.movablePieces = [];
             
             const player = PLAYERS[piece.userData.playerId];
-            const currentPos = piece.userData.pathPosition;
+            const userData = piece.userData;
 
-            if(currentPos === -1) {
-                // Move from home to start position
-                piece.userData.pathPosition = 0;
-                const targetCell = player.path[0];
-                animateMove(piece, targetCell, () => {
-                    checkWinAndContinue(piece.userData.playerId);
-                });
-            } else {
-                // Move along path
-                const newPos = currentPos + gameState.diceValue;
-                piece.userData.pathPosition = newPos;
-                const targetCell = player.path[newPos];
-                
+            // Moving from home to start
+            if(userData.mainPathPosition === -1 && userData.homeStretchPosition === -1) {
+                userData.mainPathPosition = 0;
+                const targetCell = MAIN_PATH[player.startIndex];
                 animateMove(piece, targetCell, () => {
                     checkCapture(piece, targetCell);
-                    checkWinAndContinue(piece.userData.playerId);
+                    checkWinAndContinue();
                 });
+            }
+            // Moving on main path
+            else if(userData.mainPathPosition >= 0) {
+                const player = PLAYERS[userData.playerId];
+                const stepsToHomeEntry = (player.homeStretchEntry - player.startIndex + MAIN_PATH.length) % MAIN_PATH.length;
+                
+                userData.mainPathPosition += gameState.diceValue;
+                
+                // Check if entering home stretch
+                if(userData.mainPathPosition > stepsToHomeEntry) {
+                    const overshoot = userData.mainPathPosition - stepsToHomeEntry - 1;
+                    userData.mainPathPosition = -1;
+                    userData.homeStretchPosition = overshoot;
+                    const targetCell = player.homeStretch[overshoot];
+                    animateMove(piece, targetCell, () => checkWinAndContinue());
+                } else {
+                    const absolutePos = (player.startIndex + userData.mainPathPosition) % MAIN_PATH.length;
+                    const targetCell = MAIN_PATH[absolutePos];
+                    animateMove(piece, targetCell, () => {
+                        checkCapture(piece, targetCell);
+                        checkWinAndContinue();
+                    });
+                }
+            }
+            // Moving in home stretch
+            else if(userData.homeStretchPosition >= 0) {
+                userData.homeStretchPosition += gameState.diceValue;
+                const targetCell = player.homeStretch[userData.homeStretchPosition];
+                animateMove(piece, targetCell, () => checkWinAndContinue());
             }
         }
 
         function animateMove(piece, targetCell, callback) {
-            const [x, z] = targetCell;
-            const targetX = (x - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
-            const targetZ = (z - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const [row, col] = targetCell;
+            const targetX = (row - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const targetZ = (col - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
 
             const startX = piece.position.x;
             const startZ = piece.position.z;
@@ -901,61 +912,50 @@
             
             pieces.forEach(otherPiece => {
                 if(otherPiece.userData.playerId === piece.userData.playerId) return;
+                if(otherPiece.userData.mainPathPosition < 0) return; // Only capture on main path
                 
-                const otherPos = otherPiece.userData.pathPosition;
-                if(otherPos >= 0) {
-                    const otherPlayer = PLAYERS[otherPiece.userData.playerId];
-                    const otherCell = otherPlayer.path[otherPos];
-                    
-                    if(otherCell[0] === targetCell[0] && otherCell[1] === targetCell[1]) {
-                        // Capture!
-                        sendHome(otherPiece);
-                        updateStatus(`${player.name} captured ${otherPlayer.name}'s piece!`);
-                    }
+                const otherPlayer = PLAYERS[otherPiece.userData.playerId];
+                const otherAbsPos = (otherPlayer.startIndex + otherPiece.userData.mainPathPosition) % MAIN_PATH.length;
+                const otherCell = MAIN_PATH[otherAbsPos];
+                
+                if(otherCell[0] === targetCell[0] && otherCell[1] === targetCell[1]) {
+                    sendHome(otherPiece);
+                    updateStatus(`${player.name} captured ${otherPlayer.name}'s piece!`);
                 }
             });
         }
 
         function sendHome(piece) {
-            const player = PLAYERS[piece.userData.playerId];
             const homePos = piece.userData.homePos;
-            const [x, z] = homePos;
-            const posX = (x - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
-            const posZ = (z - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const [row, col] = homePos;
+            const posX = (row - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
+            const posZ = (col - BOARD_SIZE / 2 + 0.5) * CELL_SIZE;
 
             piece.position.set(posX, PIECE_HEIGHT / 2 + 0.05, posZ);
-            piece.userData.pathPosition = -1;
+            piece.userData.mainPathPosition = -1;
+            piece.userData.homeStretchPosition = -1;
         }
 
-        function checkWinAndContinue(playerId) {
-            if(checkWin(playerId)) {
-                gameState.winner = playerId;
+        function checkWinAndContinue() {
+            const player = PLAYERS[gameState.currentPlayer];
+            let finished = player.pieces.filter(p => 
+                p.userData.homeStretchPosition === player.homeStretch.length - 1
+            ).length;
+            
+            if(finished >= 4) {
+                gameState.winner = gameState.currentPlayer;
                 showWinner();
             } else {
-                // Check if player rolled 6 for another turn
                 if(gameState.diceValue === 6) {
                     setTimeout(() => {
                         gameState.canRoll = true;
                         document.getElementById('dice-button').disabled = false;
-                        updateStatus(`${PLAYERS[gameState.currentPlayer].name} rolled 6! Roll again!`);
+                        updateStatus(`${player.name} rolled 6! Roll again!`);
                     }, 800);
                 } else {
                     setTimeout(nextPlayer, 1000);
                 }
             }
-        }
-
-        function checkWin(playerId) {
-            const player = PLAYERS[playerId];
-            let finished = 0;
-            
-            player.pieces.forEach(piece => {
-                if(piece.userData.pathPosition >= player.path.length - 1) {
-                    finished++;
-                }
-            });
-            
-            return finished >= 4;
         }
 
         function nextPlayer() {
@@ -1007,7 +1007,7 @@
 
             PLAYERS.forEach((player, idx) => {
                 const finishedCount = player.pieces.filter(p => 
-                    p.userData.pathPosition >= player.path.length - 1
+                    p.userData.homeStretchPosition === player.homeStretch.length - 1
                 ).length;
                 
                 const item = document.createElement('div');
@@ -1028,11 +1028,6 @@
 
         function updateStatus(text) {
             document.getElementById('status-text').textContent = text;
-        }
-
-        function onMouseMove(event) {
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         }
 
         function onWindowResize() {
@@ -1063,7 +1058,6 @@
                 }
             });
 
-            // Gentle camera movement
             const time = Date.now() * 0.0001;
             camera.position.x = Math.sin(time * 0.5) * 1.5;
 
